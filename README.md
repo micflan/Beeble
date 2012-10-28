@@ -4,7 +4,7 @@ Basic set of files and Composer requirements for starting a PHP project.
 
 Using Fabien Potencier's guide "Create your own framework... on top of the Symfony2 Components" as inspiration and adjusting for my own requirements and fancies along the way.
 
-	http://fabien.potencier.org/article/50/create-your-own-framework-on-top-of-the-symfony2-components-part-1
+http://fabien.potencier.org/article/50/create-your-own-framework-on-top-of-the-symfony2-components-part-1
 
 
 ## Current Status (28/Oct/2012)
