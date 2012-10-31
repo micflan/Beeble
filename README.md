@@ -16,11 +16,11 @@ It works as a very basic MVC framework, with Twig templating. Could do with some
 
 ### 31/Oct/2012
 
-Named it "Beeble".
-Added Twig templating.
-Added a basic model to build on.
-Added a basic unittest structure to build on.
-Created a base controller and refactored some code.
+- Named it "Beeble".
+- Added Twig templating.
+- Added a basic model to build on.
+- Added a basic unittest structure to build on.
+- Created a base controller and refactored some code.
 
 ### 28/Oct/2012
 
