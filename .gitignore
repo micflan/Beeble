@@ -38,3 +38,4 @@ publish
 composer.lock
 composer.phar
 vendor
+storage

@@ -6,16 +6,19 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Hello\Model\User;
 
-class HelloController {
+class HelloController extends BaseController {
 
 	public function indexAction(Request $request, $name)
 	{
+		$data = array('name' => 'World');
+		
 		$user = new User();
-		if ( ! $user->is_valid_name($name))
+		if ( $user->is_valid_name($name) )
 		{
-			return new Response("Not a valid name.");
+			$data['name'] = $name;
 		}
 
-		return new Response("Hello $name");
+		return new Response($this->template->render($data));
 	}
+
 }

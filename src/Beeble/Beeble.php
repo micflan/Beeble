@@ -8,7 +8,7 @@ use Symfony\Component\Routing\Matcher\UrlMatcherInterface;
 use Symfony\Component\Routing\Exception\ResourceNotFoundException;
 use Symfony\Component\HttpKernel\Controller\ControllerResolverInterface;
 
-class Framework
+class Beeble
 {
     protected $matcher;
     protected $resolver;
@@ -17,6 +17,16 @@ class Framework
     {
         $this->matcher = $matcher;
         $this->resolver = $resolver;
+    }
+
+
+    public static function twig()
+    {
+        $loader = new \Twig_Loader_Filesystem(__DIR__ . '/../views');
+
+        return new \Twig_Environment($loader, array(
+            // 'cache' => __DIR__ . '/../../storage/twig/compilation_cache',
+        ));
     }
 
     public function handle(Request $request)
@@ -31,7 +41,7 @@ class Framework
         } catch (ResourceNotFoundException $e) {
             return new Response('Not Found', 404);
         } catch (\Exception $e) {
-            return new Response('An error occurred', 500);
+            return new Response('An error occurred: ' . $e->getMessage(), 500);
         }
     }
 }

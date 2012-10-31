@@ -17,7 +17,10 @@ $context->fromRequest($request);
 $matcher = new Routing\Matcher\UrlMatcher($routes, $context);
 $resolver = new HttpKernel\Controller\ControllerResolver();
 
-$framework = new Beeble\Framework($matcher, $resolver);
-$response = $framework->handle($request);
+
+// Load the template
+
+$beeble = new Beeble\Beeble($matcher, $resolver);
+$response = $beeble->handle($request);
 
 $response->send();

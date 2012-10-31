@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    {% block head %}
+      <link rel="stylesheet" href="style.css" />
+      <title>{% block title %}{% endblock %} - My Webpage</title>
+
+      <!-- Bootstrap -->
+      <link href="/assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    {% endblock %}
+  </head>
+
+  <body>
+
+    <div id="content">{% block content %}{% endblock %}</div>
+
+    <div id="footer">
+      {% block footer %}
+        <!-- &copy; Copyright 2011 by <a href="http://domain.invalid/">you</a>. -->
+      {% endblock %}
+    </div>
+
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script src="/assets/bootstrap/js/bootstrap.min.js"></script>
+
+  </body>
+</html>
