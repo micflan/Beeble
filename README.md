@@ -30,3 +30,4 @@ It works as a very basic MVC framework, with Twig templating. Could do with some
 ## TODO:
 
 - Add database support
+- Add some type of settings management

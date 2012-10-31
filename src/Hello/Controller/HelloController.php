@@ -10,15 +10,16 @@ class HelloController extends BaseController {
 
 	public function indexAction(Request $request, $name)
 	{
-		$data = array('name' => 'World');
+		$data = array('name' => 'World', 'page_title' => 'Hello');
 		
 		$user = new User();
 		if ( $user->is_valid_name($name) )
 		{
 			$data['name'] = $name;
+			$data['page_title'] = $data['page_title'] . ' ' . $name;
 		}
 
-		return new Response($this->template->render($data));
+		return new Response(\Beeble\Beeble::render('hello.html', $data));
 	}
 
 }

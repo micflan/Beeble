@@ -11,7 +11,7 @@ class BaseController {
 
 	public function __construct()
 	{
-		$this->template = \Beeble\Beeble::twig()->loadTemplate('hello.html');
+		
 	}
 
 }

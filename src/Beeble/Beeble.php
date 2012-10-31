@@ -13,6 +13,26 @@ class Beeble
     protected $matcher;
     protected $resolver;
 
+    public static function site_data($key = null) {
+        $site_data = array(
+            'page_title' => 'Welcome',
+            'site_title' => 'My Website',
+            'title_sep'  => ' || ',
+            'asset_path' => '/assets/',
+        );
+
+        return $key ? (isset($site_data['key']) ? $site_data['key'] : null) : $site_data;
+    }
+
+    public function __get($name) {
+        return $this->$name;
+    }
+
+    public function __set($name, $value) {
+        $this->$name = $value;
+    }
+
+
     public function __construct(UrlMatcherInterface $matcher, ControllerResolverInterface $resolver)
     {
         $this->matcher = $matcher;
@@ -20,13 +40,17 @@ class Beeble
     }
 
 
-    public static function twig()
+    public static function render($view, $data)
     {
         $loader = new \Twig_Loader_Filesystem(__DIR__ . '/../views');
-
-        return new \Twig_Environment($loader, array(
-            // 'cache' => __DIR__ . '/../../storage/twig/compilation_cache',
+        $twig = new \Twig_Environment($loader, array(
+            'cache' => null,
+            // __DIR__ . '/../../storage/twig/compilation_cache';
         ));
+
+        $data = array_merge(self::site_data(), $data);
+
+        return $twig->loadTemplate($view)->render($data);
     }
 
     public function handle(Request $request)
