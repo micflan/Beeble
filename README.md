@@ -24,7 +24,7 @@ It works as a very basic MVC framework, with Twig templating. Could do with some
 
 ### 28/Oct/2012
 
-Hello world.
+- Hello world.
 
 
 ## TODO:
